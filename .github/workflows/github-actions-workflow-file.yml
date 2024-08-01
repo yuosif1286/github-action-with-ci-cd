@@ -48,5 +48,9 @@ jobs:
           ls ${{ runner.tool_cache }}
       
       - run: echo "This job's status is ${{ job.status }}."
-
-
+  Secound-job:
+    name: the secound job run in another runner
+    runs-on: ubuntu-latest
+    needs: Example-Actions-Job
+    steps:
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub"
